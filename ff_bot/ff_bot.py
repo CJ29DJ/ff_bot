@@ -140,7 +140,6 @@ if __name__ == '__main__':
     '''sched.add_job(bot_main, 'interval', ['get_matchups'], seconds=30, id='get_matchups_test', replace_existing=True)'''
     '''sched.add_job(bot_main, 'cron', ['get_scoreboard_short'], id='test', day_of_week='thu', hour='14', minute=50, timezone=myTimezone, replace_existing=True)'''
     
-    sched.add_job(bot_main, 'cron', ['get_matchups'], id='matchups', day_of_week='thu', hour=19, minute=30, start_date=ff_start_date, end_date=ff_end_date, timezone=myTimezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_close_scores'], id='close_scores', day_of_week='mon', hour=7, start_date=ff_start_date, end_date=ff_end_date, timezone=myTimezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_scoreboard_short'], id='scoreboard2', day_of_week='sun', hour='18', minute=30, start_date=ff_start_date, end_date=ff_end_date, timezone=myTimezone, replace_existing=True)
 
