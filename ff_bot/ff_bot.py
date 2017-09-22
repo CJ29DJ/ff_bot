@@ -61,14 +61,14 @@ def get_scoreboard(league):
     return '\n'.join(text)
 
 def get_close_scores(league):
-    '''Gets current closest scores (10.000 points or closer)'''
+    '''Gets current closest scores (7.000 points or closer)'''
     matchups = league.scoreboard()
     score = []
     
     for i in matchups:
         if i.away_team:
             diffScore = i.away_score - i.home_score
-            if -10 < diffScore < 10:
+            if -7 < diffScore < 7:
                 '''TODO: NORMALIZE STRING LENGTH'''
                 score += ['%s %.2f - %.2f %s' % (i.home_team.team_abbrev, i.home_score,
                         i.away_score, i.away_team.team_abbrev)]
@@ -131,8 +131,7 @@ if __name__ == '__main__':
     bot_main("init")
     sched = BlockingScheduler(job_defaults={'misfire_grace_time': 15*60})
     '''
-    matchups go out thursday evening at 7:30pm.
-    close scores (within 10.00 points) go out monday at 7:00am. 
+    close scores (within 7.00 points) go out monday at 7:00am. 
     score update sunday at 6:30pm. 
     
     '''
